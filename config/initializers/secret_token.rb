@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Obo::Application.config.secret_token = '9df1a3f9c767664e098f3ee5994859e90277bf176ddedc46ccc3e583d066ea68c982853ffbb254f9914404e707d0a5218570074299d49878abbf9a11dc3abd1b'
+Tix::Application.config.secret_token = '7e309f70e7b40ce1171d3eb70979e1611e6fa5a49dc8c45ee601d2c086e16c8ea2d03e09185465e37c8402306766bd2cde5f10b615df001277d0db9fb76f3cfa'

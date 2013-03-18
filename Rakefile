@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Obo::Application.load_tasks
+Tix::Application.load_tasks

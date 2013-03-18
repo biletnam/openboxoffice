@@ -1,0 +1,31 @@
+<h1>Event Listing</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Date</th>
+    <th>Location</th>
+    <th></th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr>
+    <td><%= event.name %></td>
+    <td><%= event.description %></td>
+    <td><i>Coming soon...</i></td>
+    <td>Portage Dinner Theater</td>
+    <td>
+      <ul class="button-group round even-3">
+        <li><%= link_to 'Show', event, {:class => "button tiny secondary"} %></li>
+        <li><%= link_to 'Edit', edit_event_path(event), {:class => "button tiny secondary"} %></li>
+        <li><%= link_to 'Delete ', event, {:class => "button tiny alert", method: :delete, data: { confirm: 'Are you sure?' }} %></li>
+      </ul>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Event', new_event_path %>
