@@ -24,6 +24,7 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.json
   def new
+    @location = Location.find(params[:trip_id])
     @event = Event.new
 
     respond_to do |format|
@@ -34,13 +35,15 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @location = Location.find(params[:trip_id])
     @event = Event.find(params[:id])
   end
 
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(params[:event])
+    @location = Location.find(params[:trip_id])
+    @event = @location.event.new(params[:event])
 
     respond_to do |format|
       if @event.save

@@ -1,8 +1,8 @@
 Tix::Application.routes.draw do
-  resources :locations
+  resources :events
 
-  resources :events do
-    resources :locations
+  resources :locations do
+    resources :events
   end
 
   root :to => 'events#index'

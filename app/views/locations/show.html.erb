@@ -10,8 +10,21 @@
   <%= @location.description %>
 </p>
 
+<table>
+  <tr>
+    <th>Event</th>
+    <th>Description</th>
+  </tr>
+  <% @location.events.each do |event| %>
+    <tr>
+      <td><%= event.name %></td>
+      <td><%= event.description %></td>
+    </tr>
+  <% end %>
+</table>
+
 <p>
-  <%= link_to 'New Event', new_event_location_path(@location) %>
+  <%= link_to 'New Event', new_location_event_path(@location) %>
 </p>
 
 <%= link_to 'Edit', edit_location_path(@location) %> |
