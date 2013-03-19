@@ -1,11 +1,11 @@
 Tix::Application.routes.draw do
-  resources :events
+  resources :events, only: :index
 
   resources :locations do
     resources :events
   end
 
-  root :to => 'events#index'
+  root :to => 'locations#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

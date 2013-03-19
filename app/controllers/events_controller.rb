@@ -13,6 +13,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @location = Location.find(params[:location_id])
     @event = Event.find(params[:id])
 
     respond_to do |format|
@@ -24,7 +25,7 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.json
   def new
-    @location = Location.find(params[:trip_id])
+    @location = Location.find(params[:location_id])
     @event = Event.new
 
     respond_to do |format|
@@ -35,19 +36,19 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @location = Location.find(params[:trip_id])
+    @location = Location.find(params[:location_id])
     @event = Event.find(params[:id])
   end
 
   # POST /events
   # POST /events.json
   def create
-    @location = Location.find(params[:trip_id])
-    @event = @location.event.new(params[:event])
+    @location = Location.find(params[:location_id])
+    @event = @location.events.new(params[:event])
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to location_event_path(@location,@event), notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
       else
         format.html { render action: "new" }
@@ -60,10 +61,11 @@ class EventsController < ApplicationController
   # PUT /events/1.json
   def update
     @event = Event.find(params[:id])
+    @location = @event.location
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to location_event_path(@event.location, @event), notice: 'Event was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -17,7 +17,7 @@
   </tr>
   <% @location.events.each do |event| %>
     <tr>
-      <td><%= event.name %></td>
+      <td><%= link_to event.name, edit_location_event_path(@location, event) %></td>
       <td><%= event.description %></td>
     </tr>
   <% end %>

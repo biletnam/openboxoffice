@@ -14,7 +14,7 @@
     <td><%= event.name %></td>
     <td><%= event.description %></td>
     <td><i>Coming soon...</i></td>
-    <td>Portage Dinner Theater</td>
+    <td><%= event.location.name%></td>
     <td>
       <ul class="button-group round even-3">
         <li><%= link_to 'Show', event, {:class => "button tiny secondary"} %></li>
@@ -27,5 +27,3 @@
 </table>
 
 <br />
-
-<%= link_to 'New Event', new_event_path %>
