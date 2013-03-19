@@ -1,4 +1,6 @@
 Tix::Application.routes.draw do
+  devise_for :users
+
   resources :events, only: :index
 
   resources :locations do
