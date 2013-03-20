@@ -1,27 +1,17 @@
-<h1>Event Listing</h1>
-
 <table>
   <tr>
     <th>Name</th>
     <th>Description</th>
     <th>Date</th>
     <th>Location</th>
-    <th></th>
   </tr>
 
 <% @events.each do |event| %>
   <tr>
-    <td><%= event.name %></td>
+    <td><%= link_to event.name, edit_location_event_path(event.location, event) %></td>
     <td><%= event.description %></td>
     <td><i>Coming soon...</i></td>
     <td><%= event.location.name%></td>
-    <td>
-      <ul class="button-group round even-3">
-        <li><%= link_to 'Show', event, {:class => "button tiny secondary"} %></li>
-        <li><%= link_to 'Edit', edit_event_path(event), {:class => "button tiny secondary"} %></li>
-        <li><%= link_to 'Delete ', event, {:class => "button tiny alert", method: :delete, data: { confirm: 'Are you sure?' }} %></li>
-      </ul>
-    </td>
   </tr>
 <% end %>
 </table>

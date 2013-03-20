@@ -26,135 +26,53 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-	<div class="row">
-	    <div class="large-12 columns">
-		  <%= yield %>
+  <div class="row">
+    <div class="large-12 columns">
+      <h1><%= @page_name %><small>Portage Area Community Theater</small></h1>
+      <hr />
+    </div>
+  </div>
 
-	    <!-- Content Slider -->
+  <!-- Main Page Content and Sidebar -->
+ 
+  <div class="row">
+ 
+    <!-- Main Content -->
+    <div class="large-9 columns" role="content">
+    <%= yield %> 
+ 
+    </div>
+ 
+    <!-- End Main Content -->
+ 
+ 
+    <!-- Sidebar -->
+ 
+    <aside class="large-3 columns">
+ 
+    <div class="panel">
+      <h5>Featured</h5>
+      <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
+      <a href="#">Read More &rarr;</a>
+    </div>
 
-	      <div class="row">
-	        <div class="large-12 hide-for-small">
-
-	          <div id="featured">
-	              <img src="http://placehold.it/1200x500&text=Slide Image" alt="slide image">
-	              <!-- <img src="http://placehold.it/1200x500&text=Slide Image" alt="slide image">
-	              <img src="http://placehold.it/1200x500&text=Slide Image" alt="slide image"> -->
-	            </div>
-
-	      </div>
-	    </div>
-
-	    <!-- End Content Slider -->
-
-	    <!-- Mobile Header -->
-
-	      <div class="row">
-	        <div class="large-12 columns show-for-small">
-
-	          <img src="http://placehold.it/1200x700&text=Mobile Header">
-
-	        </div>
-	      </div><br>
-
-	    <!-- End Mobile Header -->
-
-
-	      <div class="row">
-	        <div class="large-12 columns">
-	          <div class="row">
-	            <!-- Shows -->
-	            <div class="large-4 small-6 columns">
-
-	              <h4>Upcoming Shows</h4><hr>
-
-	              <div class="row">
-	                <div class="large-1 column">
-	                  <img src="http://placehold.it/50x50&amp;text=[img]">
-	                </div>
-
-	                <div class="large-9 columns">
-	                  <h5><%= link_to "Zona Gale", locations_path(1) %></h5>
-	                </div>
-	              </div><hr>
-
-	              <div class="hide-for-small">
-	                <div class="row">
-	                  <div class="large-1 column">
-	                    <img src="http://placehold.it/50x50&amp;text=[img]">
-	                  </div>
-
-	                  <div class="large-9 columns">
-		                <h5><%= link_to "Northwoods Dinner Theater", locations_path(2) %></h5>
-	                  </div>
-	                </div><hr>
-
-	                <div class="row">
-	                  <div class="large-1 column">
-	                    <img src="http://placehold.it/50x50&amp;text=[img]">
-	                  </div>
-
-	                  <div class="large-9 columns">
-	                    <h5 class="subheader"><a href="#">Park Shows</a></h5>
-	                  </div>
-	                </div><hr>
-
-	                <div class="row">
-	                  <div class="large-1 column">
-	                    <img src="http://placehold.it/50x50&amp;text=[img]">
-	                  </div>
-
-	                  <div class="large-9 columns">
-	                    <h5 class="subheader"><a href="#">Special Events</a></h5>
-	                  </div>
-	                </div>
-	              </div>
-	            </div>
-	            <!-- End Shows -->
-
-
-	            <!-- Image -->
-
-	            <div class="large-4 small-6 columns">
-	              <img src="http://placehold.it/300x465&amp;text=Image">
-	            </div>
-
-	            <!-- End Image -->
-
-
-	            <!-- Feed -->
-
-	            <div class="large-4 small-12 columns">
-
-	              <h4>Blog</h4><hr>
-	              <div class="panel">
-	                <h5><a href="#">Post Title 1</a></h5>
-
-	                <h6 class="subheader">
-	                  Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Suspendisse ultrices ornare tempor...
-	                </h6>
-
-	                <h6><a href="#">Read More »</a></h6>
-	              </div>
-
-	              <div class="panel hide-for-small">
-	                <h5><a href="#">Post Title 2 »</a></h5>
-	              </div>
-
-	              <div class="panel hide-for-small">
-	                <h5><a href="#">Post Title 3 »</a></h5>
-	              </div>
-
-	              <a href="#" class="right">Go To Blog »</a>
-
-	            </div>
-
-	            <!-- End Feed -->
-
-	          </div>
-	        </div>
-	      </div>
-
-	    <!-- End Content -->
+    <div class="panel">
+      <h5>Categories</h5>
+      <ul class="side-nav">
+        <li><a href="#">Drama</a></li>
+        <li><a href="#">Comedy</a></li>
+        <li><a href="#">Seasonal</a></li>
+        <li><a href="#">Music</a></li>
+        <li><a href="#">Talks and Lectures</a></li>
+      </ul>
+    </div>
+ 
+    </aside>
+ 
+    <!-- End Sidebar -->
+  </div>
+ 
+  <!-- End Main Content and Sidebar -->
 
 	    <%= render :partial => 'layouts/footer' %>
 
