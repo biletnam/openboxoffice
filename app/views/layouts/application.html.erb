@@ -13,7 +13,7 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title><%= content_for?(:title) ? yield(:title) : "OBO Ticketing" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
@@ -21,65 +21,14 @@
   </head>
 
   <body>
-
-    <nav class="top-bar">
-    <ul class="title-area">
-      <!-- Title Area -->
-      <li class="name">
-        <h1><a href="/">openBoxOffice</a></h1>
-      </li>
-      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-    </ul>
-
-    <section class="top-bar-section">
-    <!-- Left Nav Section -->
-    <ul class="left">
-      <li class="divider"></li>
-      <li class="active">
-	    <%= link_to "Locations", locations_path %>
-      </li>
-      <li>
-	    <%= link_to "Events", events_path %>
-	  </li>      	
-      <li class="divider"></li>
-	</ul>
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li class="divider hide-for-small"></li>
-      <% if user_signed_in? %>
-        <li><%= link_to current_user.email, edit_user_registration_path %></li>
-        <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
-      <% else %>
-        <li><%= link_to "Sign Up", new_user_registration_path %></li>
-        <li><%= link_to "Log In", new_user_session_path %></li>
-      <% end %>
-      <li class="divider"></li>
-      <li class="has-form">
-        <form>
-          <div class="row collapse">
-            <div class="small-8 columns">
-              <input type="text">
-            </div>
-            <div class="small-4 columns">
-              <a href="#" class="alert button">Search</a>
-            </div>
-          </div>
-        </form>
-      </li>
-      <li class="divider show-for-small"></li>
-      <li class="has-form">
-        <a class="button" href="#">Join Now!</a>
-      </li>
-    </ul>
-    </section>
-    </nav>    
+    <%= render :partial => 'layouts/topnavbar' %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
 	<div class="row">
 	    <div class="large-12 columns">
+		  <%= yield %>
 
 	    <!-- Content Slider -->
 
@@ -124,8 +73,7 @@
 	                </div>
 
 	                <div class="large-9 columns">
-	                  <h5><a href="#">Venue Name</a></h5>
-	                  <h6 class="subheader show-for-small">Doors at 00:00pm</h6>
+	                  <h5><%= link_to "Zona Gale", locations_path(1) %></h5>
 	                </div>
 	              </div><hr>
 
@@ -136,7 +84,7 @@
 	                  </div>
 
 	                  <div class="large-9 columns">
-	                    <h5 class="subheader"><a href="#">Venue Name</a></h5>
+		                <h5><%= link_to "Northwoods Dinner Theater", locations_path(2) %></h5>
 	                  </div>
 	                </div><hr>
 
@@ -146,7 +94,7 @@
 	                  </div>
 
 	                  <div class="large-9 columns">
-	                    <h5 class="subheader"><a href="#">Venue Name</a></h5>
+	                    <h5 class="subheader"><a href="#">Park Shows</a></h5>
 	                  </div>
 	                </div><hr>
 
@@ -156,7 +104,7 @@
 	                  </div>
 
 	                  <div class="large-9 columns">
-	                    <h5 class="subheader"><a href="#">Venue Name</a></h5>
+	                    <h5 class="subheader"><a href="#">Special Events</a></h5>
 	                  </div>
 	                </div>
 	              </div>
@@ -205,35 +153,10 @@
 	          </div>
 	        </div>
 	      </div>
-	    <%= yield %>
 
 	    <!-- End Content -->
 
-
-	    <!-- Footer -->
-
-	      <footer class="row">
-	        <div class="large-12 columns"><hr>
-	            <div class="row">
-
-	              <div class="large-6 columns">
-	                  <p>&copy; Copyright no one at all. Go to town.</p>
-	              </div>
-
-	              <div class="large-6 small-12 columns">
-	                  <ul class="inline-list right">
-	                    <li><a href="#">Link 1</a></li>
-	                    <li><a href="#">Link 2</a></li>
-	                    <li><a href="#">Link 3</a></li>
-	                    <li><a href="#">Link 4</a></li>
-	                  </ul>
-	              </div>
-
-	            </div>
-	        </div>
-	      </footer>
-
-	    <!-- End Footer -->
+	    <%= render :partial => 'layouts/footer' %>
 
 	    </div>
 	  </div>

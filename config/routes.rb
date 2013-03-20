@@ -2,12 +2,13 @@ Tix::Application.routes.draw do
   devise_for :users
 
   resources :events, only: :index
-
+  resources :welcome, only: :index
+  
   resources :locations do
     resources :events
   end
 
-  root :to => 'locations#index'
+  root :to => 'welcome#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
